@@ -1,0 +1,6 @@
+allowBuilds:
+  esbuild: true
+  workerd: true
+minimumReleaseAgeExclude:
+  - "@types/node@26.6.11"
+  - "@types/react@19.3.3"

@@ -1,0 +1,41 @@
+{
+  "name": "castvane-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/strip-client-assets.mjs",
+    "start": "wrangler dev",
+    "preview": "wrangler dev",
+    "lint": "oxlint --deny-warnings src tests scripts",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "typecheck": "tsc --noEmit",
+    "validate:static": "node scripts/validate-static-export.mjs",
+    "test": "playwright test",
+    "test:e2e": "playwright test",
+    "deploy": "pnpm build && wrangler deploy"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.1",
+    "@playwright/test": "1.65.1",
+    "@tailwindcss/postcss": "4.3.5",
+    "@types/node": "26.6.11",
+    "@types/react": "19.3.3",
+    "@types/react-dom": "19.3.0",
+    "oxfmt": "0.80.0",
+    "oxlint": "1.95.0",
+    "tailwindcss": "4.3.5",
+    "typescript": "7.0.2",
+    "wrangler": "4.168.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "pnpm@11.25.0"
+}

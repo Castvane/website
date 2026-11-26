@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "castvane-website",
+  "compatibility_date": "2026-11-26",
+  "workers_dev": false,
+  "routes": [{ "pattern": "castvane.stream", "custom_domain": true }],
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+  },
+}

@@ -1,0 +1,4 @@
+Contact: mailto:security@castvane.stream
+Expires: 2027-11-26T00:00:00.000Z
+Canonical: https://castvane.stream/.well-known/security.txt
+Preferred-Languages: en
