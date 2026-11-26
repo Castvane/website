@@ -150,6 +150,28 @@ test("structured data names the project and official organization", async ({ pag
   ).toBeTruthy();
 });
 
+test("roadmap shows Core 0.1.0 and separates completed work from remaining plans", async ({
+  page,
+}) => {
+  await page.goto("/roadmap/");
+  await expect(page.getByText("Current Core package version: 0.1.0.")).toBeVisible();
+
+  const processRow = page
+    .locator(".roadmap-row")
+    .filter({ has: page.getByRole("heading", { name: "FFmpeg process management" }) });
+  await expect(processRow.locator(".roadmap-status")).toHaveText("Completed");
+
+  const compatibilityRow = page
+    .locator(".roadmap-row")
+    .filter({ has: page.getByRole("heading", { name: "Legacy API v3 compatibility" }) });
+  await expect(compatibilityRow.locator(".roadmap-status")).toHaveText("In development");
+
+  const containerRow = page
+    .locator(".roadmap-row")
+    .filter({ has: page.getByRole("heading", { name: "Container distribution" }) });
+  await expect(containerRow.locator(".roadmap-status")).toHaveText("Planned");
+});
+
 test("custom not-found page returns a 404 status", async ({ page }) => {
   const response = await page.goto("/this-route-does-not-exist/");
   expect(response?.status()).toBe(404);

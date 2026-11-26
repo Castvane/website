@@ -11,34 +11,39 @@ export const roadmap: { category: string; items: RoadmapItem[] }[] = [
     category: "Core foundation",
     items: [
       {
-        title: "Rust streaming core",
-        summary: "Develop the independent Rust foundation for the Castvane streaming engine.",
-        status: "In development",
+        title: "Rust API and configuration foundation",
+        summary:
+          "Core 0.1.0 includes a Rust API v3 foundation, SQLite-backed configuration, local JWT login and structured logging. The package version does not imply full legacy API compatibility.",
+        status: "Completed",
       },
       {
         title: "Configuration and storage",
-        summary: "Define how deployments configure Castvane and persist service state.",
-        status: "Planned",
+        summary:
+          "Transactional configuration and disk, memory and S3 mounts are implemented, including bounded filesystem operations and HTTP range delivery.",
+        status: "Completed",
       },
     ],
   },
   {
-    category: "Stream operations",
+    category: "Processes and media",
     items: [
       {
-        title: "Process management",
-        summary: "Manage media processes through a consistent service model.",
-        status: "Planned",
+        title: "FFmpeg process management",
+        summary:
+          "The single-node engine creates, probes, schedules and supervises FFmpeg jobs, with persisted desired state and reports. It requires external FFmpeg/FFprobe; implementation and automated verification are complete, while browser acceptance remains open.",
+        status: "Completed",
       },
       {
         title: "Ingest and distribution",
-        summary: "Plan stream ingest and delivery workflows for self-hosted deployments.",
-        status: "Planned",
+        summary:
+          "HLS/DASH delivery, viewer sessions, RTMP/RTMPS and SRT support are implemented. Native transports require the separately installed MediaMTX companion; UI/browser acceptance remains open.",
+        status: "Completed",
       },
       {
         title: "Transcoding and media processing",
-        summary: "Establish media processing and transcoding workflows.",
-        status: "Planned",
+        summary:
+          "FFmpeg jobs can process media and generate HLS/DASH output. Remaining live playout controls and broader client compatibility are still in development.",
+        status: "In development",
       },
     ],
   },
@@ -46,44 +51,56 @@ export const roadmap: { category: string; items: RoadmapItem[] }[] = [
     category: "API and operations",
     items: [
       {
-        title: "API compatibility",
+        title: "Legacy API v3 compatibility",
         summary:
-          "Work toward compatibility with datarhei Core APIs where appropriate. Castvane is developed independently and has no affiliation with datarhei.",
-        status: "Planned",
+          "Core implements selected configuration, process, media and operations routes. Full parity is not claimed: pinned UI version gates and manual browser acceptance still block complete dashboard compatibility. Castvane is independent and unaffiliated with datarhei.",
+        status: "In development",
       },
       {
         title: "Authentication and authorization",
-        summary: "Plan access controls for API and service operations.",
-        status: "Planned",
+        summary:
+          "Local JWT login, managed identities, scoped policies and zone reservations are implemented. Auth0 federation and some legacy IAM forms remain compatibility gaps.",
+        status: "In development",
       },
       {
         title: "Observability",
-        summary: "Plan operational visibility for self-hosted service owners.",
-        status: "Planned",
+        summary:
+          "Health/readiness routes, resource and Prometheus metrics, bounded logs/events and audit history are implemented. Some reference-specific metrics and event details remain open.",
+        status: "In development",
       },
     ],
   },
   {
-    category: "Release and ecosystem",
+    category: "Release and future work",
     items: [
       {
         title: "Security hardening",
-        summary: "Include security review and hardening in the project’s development work.",
-        status: "Planned",
+        summary:
+          "Request policies, process restrictions, managed TLS and optional ACME support are present. Security review and production validation remain ongoing work.",
+        status: "In development",
       },
       {
         title: "Container distribution",
-        summary: "Plan a container-based distribution path when the core is ready.",
+        summary:
+          "A supported container image and distribution workflow have not yet been published.",
         status: "Planned",
       },
       {
-        title: "Documentation",
-        summary: "Build practical documentation as the project’s interfaces take shape.",
-        status: "Planned",
+        title: "Public documentation site",
+        summary:
+          "The Core repository now contains README, phase and API documentation. A hosted operator documentation site and broader release/install guidance remain future work.",
+        status: "In development",
       },
       {
         title: "Future web interface",
-        summary: "Consider a web interface for managing a Castvane deployment.",
+        summary:
+          "A Castvane-managed web interface has not been published; existing Restreamer UI compatibility is tracked separately above.",
+        status: "Planned",
+      },
+      {
+        title: "Clustered and distributed Core",
+        summary:
+          "Consensus, node enrollment, replication, multi-node scheduling and failover remain future work.",
         status: "Planned",
       },
     ],
